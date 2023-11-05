@@ -1,0 +1,4 @@
+venv/
+llama.cpp/
+.DS_Store
+*.gguf
