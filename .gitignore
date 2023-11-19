@@ -2,3 +2,13 @@ venv/
 llama.cpp/
 .DS_Store
 *.gguf
+
+# VSCode Debug
+.vscode
+
+# data
+qlora/data/*
+
+# outputs
+qlora/outputs/*
+qlora/examples/outputs/*
