@@ -10,5 +10,6 @@ llama.cpp/
 qlora/data/*
 
 # outputs
+outputs/*
 qlora/outputs/*
 qlora/examples/outputs/*
