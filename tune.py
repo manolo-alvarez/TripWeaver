@@ -1,8 +1,8 @@
 import torch
-import transformers
 import evaluate
 import numpy as np
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, DataCollatorForLanguageModeling, TrainingArguments, Trainer, PretrainedConfig
+from trl import DPOTrainer
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model
 from datasets import load_dataset
 
@@ -44,6 +44,16 @@ def compute_metrics(eval_pred):
     result["gen_len"] = np.mean(prediction_lens)
 
     return {k: round(v, 4) for k, v in result.items()}
+
+def return_prompt_and_responses(samples) -> dict[str, str, str]:
+    return {
+        "prompt": [
+            "Question: " + question + "\n\nAnswer: "
+            for question in samples["question"]
+        ],
+        "chosen": samples["response_j"],   # rated better than k
+        "rejected": samples["response_k"], # rated worse than j
+    }
 
 # Base model: meta-llama/Llama-2-13b-hf
 model_name = "meta-llama/Llama-2-13b-hf"
@@ -91,28 +101,72 @@ print_trainable_parameters(model)
 
 # Load dataset
 # run: rm -r ~/.cache/huggingface/datasets if having trouble with disk space.
+###################### load DATASET: cnn_dailymail ######################
 data = load_dataset("cnn_dailymail", '3.0.0')
 data = data.map(preprocess_cnn_dailymail_dataset, batched=True)
 
+################# load DATASET: stack-exchange-paired ###################
+'''
+data = load_dataset("lvwerra/stack-exchange-paired")
+original_columns = data.column_names
+
+data.map(
+    return_prompt_and_responses,
+    batched=True,
+    remove_columns=original_columns
+)
+'''
+#########################################################################
 # needed for gpt-neo-x tokenizer
 # TODO check why this is needed
 tokenizer.pad_token = tokenizer.eos_token
 
 # Set data collator
-data_collator = transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False)
+data_collator = DataCollatorForLanguageModeling(tokenizer, mlm=False)
 
 # Load evaluation method
 rouge = evaluate.load("rouge")
 
+############### Train model with DPO ###############
+dpo_trainer = DPOTrainer(
+    model,
+    model,
+    beta=0.1,
+    train_dataset=data["train"],
+    eval_dataset=data["test"],
+    data_collator=data_collator,
+    tokenizer=tokenizer,
+    args=TrainingArguments(
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=4,
+        warmup_steps=2,
+        max_steps=50,
+        learning_rate=1e-4,
+        fp16=True,
+        logging_steps=10,
+        output_dir="outputs",
+        optim="paged_adamw_8bit",
+        report_to="none",
+        save_steps=10,
+        resume_from_checkpoint=True
+    )
+)
+model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
+
+dpo_trainer.train()
+dpo_trainer.save_model()
+
+############### Train model with QLORA ###############
+'''
 # Instantitate trainer with training parameters
-trainer = transformers.Trainer(
+trainer = Trainer(
     model=model,
     train_dataset=data["train"],
     eval_dataset=data["test"],
     data_collator=data_collator,
     tokenizer=tokenizer,
     compute_metrics=compute_metrics,
-    args=transformers.TrainingArguments(
+    args=TrainingArguments(
         per_device_train_batch_size=1,
         gradient_accumulation_steps=4,
         warmup_steps=2,
@@ -127,10 +181,9 @@ trainer = transformers.Trainer(
         resume_from_checkpoint=True
     )
 )
-model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
 
-# Train model
 trainer.train()
 
 # Save model config for inference
-transformers.PretrainedConfig().save_pretrained("outputs")
+PretrainedConfig().save_pretrained("outputs")
+'''
