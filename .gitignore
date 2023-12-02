@@ -8,6 +8,7 @@ llama.cpp/
 
 # data
 qlora/data/*
+data/*.json
 
 # outputs
 outputs/*

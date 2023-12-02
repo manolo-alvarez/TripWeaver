@@ -1,0 +1,5 @@
+I will be traveling to __city__ from __start_date__ through __end_date__.
+
+Generate an itinerary that details activities, transportation between destinations, approximate expenses per activity, breakfast location, lunch location, dinner location, is flexible, and doesn't cost more than $__budget__ total (not including flights and accommodation).
+
+Limit your response to 700 words.

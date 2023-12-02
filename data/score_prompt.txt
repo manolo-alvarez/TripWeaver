@@ -1,0 +1,40 @@
+Consider the following travel itinerary:
+{
+__itinerary__
+}
+
+Score the itinerary per the following rubric:
+{
+**Travel Itinerary Rubric**
+
+1. **Activities and Attractions (35 points)**
+- Variety of activities, including cultural, recreational, and historical experiences.
+- Inclusion of must-see attractions.
+- Balance between structured and free time.
+
+2. **Transportation (15 points)**
+- Well-planned transportation between destinations.
+- Efficiency and convenience of travel options.
+
+3. **Budget and Expenses (25 points)**
+- Clear cost breakdown and financial planning.
+- Appropriateness of expenses based on the traveler's budget.
+- Strategies for cost-saving, if applicable.
+
+4. **Local Cuisine and Dining (10 points)**
+- Inclusion of authentic local dining experiences.
+- Recommendations for must-try dishes.
+
+5. **Cultural Immersion (10 points)**
+- Opportunities for interacting with locals.
+- Exploration of local customs and traditions.
+- Integration of cultural experiences into the itinerary.
+
+6. **Flexibility (5 points)**
+- Ability to adapt the itinerary based on unexpected circumstances.
+- Contingency plans for weather-related or unforeseen issues.
+
+*Total Score: 100 points*
+}
+
+Limit your response to 10 words. I just care about the total score. Add one '@' character before the number.
