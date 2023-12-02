@@ -13,3 +13,6 @@ qlora/data/*
 outputs/*
 qlora/outputs/*
 qlora/examples/outputs/*
+
+# debug
+debug/*
