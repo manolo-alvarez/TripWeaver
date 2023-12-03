@@ -62,7 +62,7 @@ data_file = open('data/itinerary.json', 'w')
 # Open Client for OpenAI API
 client = OpenAI()
 
-for i in range(2):#len(dates):
+for i in range(1):#len(dates):
 
   # Generate itinerary prompt parameters
   city = cities[i%len(cities)].strip()
@@ -71,9 +71,11 @@ for i in range(2):#len(dates):
   budget = random.randint(500,1500)
   itinerary_prompt = replace_itinerary_placeholders(init_itinerary_prompt, city, start_date, end_date, budget)
 
+  #print("Generating itinerary #" + str(i) + " for " + city + " from " + start_date + " to " + end_date + " with a budget of $" + str(budget) + "...")
+
   # Generate itineraries 1 and 2
   itinerary_response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-3.5-turbo-1106",
     n=2, # number of chat completion choices to generate for each input message
     temperature=1.0,
     messages=[
@@ -85,9 +87,9 @@ for i in range(2):#len(dates):
   # Score itinerary 1
   score_1_prompt = replace_score_placeholders(init_score_prompt, itinerary_response.choices[0].message.content)
   score_1_response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-3.5-turbo-1106",
     n=1, # number of chat completion choices to generate for each input message
-    temperature=0, # want a deterministic score
+    temperature=1, # want a deterministic score
     messages=[
       {"role": "user",
       "content": score_1_prompt}
@@ -97,14 +99,20 @@ for i in range(2):#len(dates):
   # Score itinerary 2
   score_2_prompt = replace_score_placeholders(init_score_prompt, itinerary_response.choices[1].message.content)
   score_2_response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-3.5-turbo-1106",
     n=1, # number of chat completion choices to generate for each input message
-    temperature=0, # want a deterministic score
+    temperature=1, # want a deterministic score
     messages=[
       {"role": "user",
       "content": score_2_prompt}
     ]
   )
+
+  #print("Received GPT Completions")
+  #print("Itinerary 1: " + itinerary_response.choices[0].message.content)
+  #print("Itinerary 2: " + itinerary_response.choices[1].message.content)
+  #print("Score 1: " + score_1_response.choices[0].message.content)
+  #print("Score 2: " + score_2_response.choices[0].message.content)
 
   # Compare scores of itineraries
   indexOfScore_1 = score_1_response.choices[0].message.content.find("@")+1
@@ -151,21 +159,6 @@ for i in range(2):#len(dates):
     print("could not find the score for data entry #" + str(i))
 
 data_file.close()
+print("DONE!")
 
 ################## Archive #####################
-
-'''
-def save_datapoints(datapoints:list, file_path:str):
-  
-  creates a file where each line is a new JSON representation of a datapoint from the list of datapoints
-
-  args:
-    datapoints : list : list of datapoints
-    file_path : str : path to output file
-  
-  with open(file_path, 'w') as file:
-    for datapoint in datapoints:
-      # convert the dictionary to a JSON string
-      datapoint_json = json.dumps(datapoint)
-      # write the JSON string to the file with a new line
-      file.write(datapoint_json + '\n')'''
