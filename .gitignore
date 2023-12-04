@@ -1,19 +1,11 @@
+# venv
 venv/
-llama.cpp/
-.DS_Store
-*.gguf
-
-# VSCode Debug
-.vscode
 
 # data
 qlora/data/*
-data/*.json
 
 # outputs
-outputs/*
+runs/dpo/*
+runs/sft/*
 qlora/outputs/*
 qlora/examples/outputs/*
-
-# debug
-debug/*

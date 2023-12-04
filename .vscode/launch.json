@@ -1,0 +1,61 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "dpo",
+            "type": "python",
+            "request": "launch",
+            "program": "dpo.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--beta=0.1",
+                "--model_path=runs/sft/final_checkpoint/final_merged_checkpoint",
+                "--tokenizer_path=runs/sft",
+                "--learning_rate=5e-4",
+                "--test_size=0.1",
+                "--lr_scheduler_type=cosine",
+                "--warmup_steps=50",
+                "--weight_decay=0.05",
+                "--optimizer_type=paged_adamw_32bit",
+                "--per_device_train_batch_size=1",
+                "--per_device_eval_batch_size=1",
+                "--gradient_accumulation_steps=2",
+                "--gradient_checkpointing=True",
+                "--lora_alpha=16",
+                "--lora_dropout=0.05",
+                "--lora_r=8",
+                "--max_prompt_length=1024",
+                "--max_length=1024",
+                "--max_steps=100",
+                "--logging_steps=1",
+                "--save_steps=100",
+                "--eval_steps=10",
+                "--output_dir=runs/dpo/beta_0.1",
+                "--log_freq=1",
+                "--sanity_check=False",
+                "--report_to=tensorboard",
+                "--ignore_bias_buffers=False"
+            ]
+        },
+        {
+            "name": "sft",
+            "type": "python",
+            "request": "launch",
+            "program": "sft.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+        },
+        {
+            "name": "generate_dataset",
+            "type": "python",
+            "request": "launch",
+            "program": "generate_dataset.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+        }
+    ]
+}

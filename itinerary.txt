@@ -1,0 +1,37 @@
+I will be traveling to Bangkok, Thailand from 2025-08-14 through 2025-08-18.
+
+Generate an itinerary that details activities, transportation between destinations, approximate expenses per activity, breakfast location, lunch location, dinner location, is flexible, and doesn't cost more than $824 total (not including flights and accommodation).
+
+Limit your response to 700 words.
+
+Itinerary: Day 1: 2025-08-14
+- Morning: Explore the Grand Palace and Wat Phra Kaew - $15 for entrance ticket
+- Lunch: Visit Chatuchak Weekend Market - budget around $10 for lunch
+- Afternoon: Visit the Golden Mount and Wat Saket - free of charge
+- Evening: Experience a traditional Thai dinner at Sala Rim Naam - budget around $30 for dinner
+Total estimated expenses for Day 1: $45
+
+Day 2: 2025-08-15
+- Morning: Explore the Chinatown and visit the colorful shophouses - free of charge
+- Lunch: Visit Pak Khlong Talad market for a local street food experience - budget around $10 for lunch
+- Afternoon: Take a long-tail boat ride along the Chao Phraya River - $20 for round-trip ticket
+- Evening: Visit the iconic King Power Mahanakhon Skywalk and experience the breathtaking views of the city - $20 for entrance ticket
+Total estimated expenses for Day 2: $50
+
+Day 3: 2025-08-16
+- Morning: Take a ferry to explore the renowned beaches of Pattaya - $20 for round-trip ticket
+- Lunch: Enjoy a seaside meal at Pattaya Beach - budget around $20 for lunch
+- Afternoon: Explore the beautiful promenades of Pattaya Beach - free of charge
+- Evening: Dinner at a local restaurant along Beach Road - budget around $20 for dinner
+Total estimated expenses for Day 3: $60
+
+Day 4: 2025-08-17
+- Morning: Enjoy a leisurely breakfast at a local café - budget around $10 for breakfast
+- Transportation: Visit the renowned Wat Phra Yai (Big Buddha Temple) in nearby Chonburi province - $20 for round-trip taxi
+- Afternoon: Explore the iconic Buddha Mountain at Samet Nang Phloi - free of charge
+- Evening: Take a late-night dinner at a local Thai restaurant - budget around $25 for dinner
+Total estimated expenses for Day 4: $55
+
+Total estimated expenses for the entire itinerary: $175
+
+This itinerary provides a well-rounded experience of Bangkok's cultural and natural attractions, as well as the opportunity to savor the local cuisine. It also ensures flexibility and allows for spontaneity, with the option to visit other attractions within the city or surrounding areas. The total estimated expenses for the entire itinerary come to just under $180, well within the $824 budget for the entire trip. The itinerary is inclusive of transportation to and from the various destinations, allowing for easy navigation of the city

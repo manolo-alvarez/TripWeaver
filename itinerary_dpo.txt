@@ -1,0 +1,35 @@
+I will be traveling to Bangkok, Thailand from 2025-08-14 through 2025-08-18.
+
+Generate an itinerary that details activities, transportation between destinations, approximate expenses per activity, breakfast location, lunch location, dinner location, is flexible, and doesn't cost more than $824 total (not including flights and accommodation).
+
+Limit your response to 700 words.
+
+Day 1: August 14, 2025
+
+- Transportation to destination: 5:30 am - Coffee in Silom Road: 100 THB (~$3)
+- Breakfast: 7:00 am - Drunken Duck Coffee: 95 THB (~$3)
+- Activities: 8:30 am - Visit to Grand Palace: Adult: 250 THB (~$8), Child: 50 THB (~$2)
+- Lunch: 1:00 pm - Chatuchak Market: 150 THB (~$5)
+- Activities: 2:00 pm - Thai Cooking Class at Mahanakorn Culinary Arts: 1,600 THB (~$50)
+- Dinner: 7:30 pm - Khanom Thai: 400 THB (~$13)
+- Activities: 8:30 pm - Walk along the Chao Phraya River: Free
+- Transportation to hotel: 9:00 pm - Take a taxi: 150 THB (~$5)
+- Total Expenses: 2,230 THB (~$70)
+
+Day 2: August 15, 2025
+
+- Transportation to destination: 5:00 am - Coffee in Soi Ratchada: 100 THB (~$3)
+- Breakfast: 7:30 am - Coffee in Silom Road: 100 THB (~$3)
+- Activities: 8:30 am - Visit to Jim Thompson House: Adult: 200 THB (~$6), Child: 100 THB (~$3)
+- Lunch: 1:00 pm - Nai Thanon Restaurant: 300 THB (~$10)
+- Dinner: 6:30 pm - Chat Chai Siam: 200 THB (~$6)
+- Transportation to hotel: 9:00 pm - Take a taxi: 150 THB (~$5)
+- Total Expenses: 880 THB (~$28)
+
+Day 3: August 16, 2025
+
+- Transportation to destination: 5:30 am - Coffee in Silom Road: 100 THB (~$3)
+- Breakfast: 7:30 am - Drunken Duck Coffee: 95 THB (~$3)
+- Activities: 9:00 am - Visit to Wat Pho and the Reclining Buddha: Adult: 250 THB (~$8), Child: 100 THB (~$3)
+- Lunch: 1:00 pm - Chatuchak Market: 150 THB (~$5)
+- Dinner: 6:30 pm - Khanom Thai: 400 THB
