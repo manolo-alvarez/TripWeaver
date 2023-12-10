@@ -1,5 +1,0 @@
-I will be traveling to Bangkok, Thailand from 2025-08-14 through 2025-08-18.
-
-Generate an itinerary that details activities, transportation between destinations, approximate expenses per activity, breakfast location, lunch location, dinner location, is flexible, and doesn't cost more than $824 total (not including flights and accommodation).
-
-Limit your response to 700 words. Day specific details and exact expenses are not necessary. Any online research should be done after your response is submitted. Have fun planning your trip!

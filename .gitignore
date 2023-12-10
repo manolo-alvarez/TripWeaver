@@ -1,11 +1,12 @@
 # venv
 venv/
 
-# data
-qlora/data/*
+# experiments
+experiments/archive/*
+experiments/dpo/*
+experiments/itineraries/*
+experiments/scores/*
+experiments/sft/*
 
-# outputs
-runs/dpo/*
-runs/sft/*
-qlora/outputs/*
-qlora/examples/outputs/*
+# tmp
+tmp/
