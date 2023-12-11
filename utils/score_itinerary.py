@@ -41,7 +41,7 @@ with open("utils/ref/score_prompt.txt", "r") as file:
     # Read the entire file as text
     init_score_prompt = file.read()
 
-with open('experiments/itinerary_llama2-7b_SFT_Austin_temp-1.0_top-p-1.0_1.txt', 'r') as file:
+with open('experiments/itineraries/itinerary_llama2-7b_DPO_Amsterdam_temp-1.0_top-p-1.0_1.txt', 'r') as file:
     # Read the entire file as text
     itinerary = file.read()
 
@@ -51,7 +51,7 @@ score = completion.choices[0].message.content
 
 # Output the result as a text file in the same directory
 outdir = 'experiments/scores'
-with open(os.path.join(outdir, 'itinerary_llama2-7b_SFT_Austin_temp-1.0_top-p-1.0_1' + '_score.txt'), 'w') as file:
+with open(os.path.join(outdir, 'itinerary_llama2-7b_DPO_Amsterdam_temp-1.0_top-p-1.0_1' + '_score.txt'), 'w') as file:
     file.write(score)
 
 '''

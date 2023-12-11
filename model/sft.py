@@ -161,7 +161,7 @@ if __name__ == "__main__":
     # 4. Prepare model for 4-bit training
     base_model = prepare_model_for_kbit_training(base_model)
 
-    # 5. Load Lora config
+    # 5. Create Lora config
     config = LoraConfig(
         r=script_args.lora_r, 
         lora_alpha=script_args.lora_alpha, 
@@ -227,16 +227,3 @@ if __name__ == "__main__":
     # 12. Save model
     output_dir = os.path.join(script_args.output_dir, "final_checkpoint")
     trainer.save_model(output_dir)
-
-    # 13. Free memory for merging weights
-    del base_model
-    if is_xpu_available():
-        torch.xpu.empty_cache()
-    else:
-        torch.cuda.empty_cache()
-
-    # 14. Merge trained Lora weights to base_model
-    model = AutoPeftModelForCausalLM.from_pretrained(output_dir, device_map={'':torch.cuda.current_device()}, torch_dtype=torch.bfloat16)
-    model = model.merge_and_unload()
-    output_merged_dir = "final_merged_checkpoint"
-    model.save_pretrained(output_merged_dir, safe_serialization=True)
